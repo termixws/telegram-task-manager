@@ -1,19 +1,12 @@
 import os
 import asyncio
 import logging
-# from dotenv import load_dotenv
 
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, Command
 from aiogram.types import Message, ReactionTypeEmoji
 
 from config import TOKEN
-
-
-# load_dotenv()
-
-# TOKEN = os.getenv("TOKEN")
-TOKEN = TOKEN
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
@@ -39,9 +32,7 @@ async def get_photo(message : Message):
 async def get_qwe(message : Message):
     await message.react(reaction=[ReactionTypeEmoji(emoji="❤")])
 
-@dp.message(F.text == 'иди нахуй')
-async def fuck(message : Message):
-    await message.react(reaction=[ReactionTypeEmoji(emoji="🖕")])
+
 
 @dp.message(Command('get_photo'))
 async def send_photo(message : Message):
